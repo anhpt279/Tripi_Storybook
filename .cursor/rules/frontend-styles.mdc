@@ -1,0 +1,14 @@
+# Frontend Styling Guidelines
+
+- **Component-first:** Refer to [COMPONENT_LIBRARY_REFERENCE.md](mdc:COMPONENT_LIBRARY_REFERENCE.md) and use existing components and variants whenever possible.
+- **Avoid reinventing components:** Do not handwrite an implementation that already exists in the component library.
+- **Evaluate component fit:** If the existing components do not meet the requirement, explain the limitation and propose an alternative.
+- **Follow the theme:** Prefer the theme variables in [index.css](mdc:src/index.css) over arbitrary Tailwind values, and avoid hard-coded colors.
+- **Reuse structure:** Follow the page structure of the closest existing page or demo.
+- **Use layout components:** Build pages with `PageContainer`, `PageHeader`, and `BlockLayout` when appropriate. Refer to [LAYOUT_SYSTEM.md](mdc:LAYOUT_SYSTEM.md) for spacing and layout rules.
+- **Split complex pages:** Do not put a complex page in one file. Split it into focused files based on responsibility.
+
+## Development Process
+
+- **Plan before implementation:** Before writing code, outline the components, layout, and interaction approach. Ask for missing requirements when necessary.
+- **Review after implementation:** After development, review the result for violations of these guidelines and correct them before finishing.
