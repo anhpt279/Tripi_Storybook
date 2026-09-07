@@ -16,6 +16,7 @@ A modern component library built on [shadcn/ui](https://ui.shadcn.com/), develop
 ## Quick Start
 
 ```bash
+
 # Install dependencies
 npm install
 

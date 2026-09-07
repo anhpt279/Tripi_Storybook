@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { pinyin } from 'pinyin-pro';
 
 import {
   Select,
@@ -33,6 +34,30 @@ interface RegionData {
   name: string;
   children?: RegionData[];
 }
+
+const toEnglishRegionName = (name: string): string => {
+  const suffixes: Array<[string, string]> = [
+    ['特别行政区', 'Special Administrative Region'],
+    ['自治区', 'Autonomous Region'],
+    ['自治州', 'Autonomous Prefecture'],
+    ['省直辖县级行政区划', 'Direct-administered County-level Divisions'],
+    ['自治区直辖县级行政区划', 'Direct-administered County-level Divisions'],
+    ['省', 'Province'],
+    ['市', 'City'],
+    ['区', 'District'],
+    ['县', 'County'],
+    ['旗', 'Banner'],
+    ['盟', 'League'],
+  ];
+  const suffix = suffixes.find(([source]) => name.endsWith(source));
+  const baseName = suffix ? name.slice(0, -suffix[0].length) : name;
+  const translatedName = pinyin(baseName, { toneType: 'none' })
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, character => character.toUpperCase());
+
+  return suffix ? `${translatedName} ${suffix[1]}` : translatedName;
+};
   // Implementation detail
 interface CitySelectValue {
   province?: { code: string; name: string };
@@ -57,7 +82,7 @@ interface CitySelectProps
 const transformRegionDataToCascaderOptions = (data: RegionData[]): CascaderOption[] => {
   return data.map(item => ({
     value: item.code,
-    label: item.name,
+    label: toEnglishRegionName(item.name),
     children: item.children ? transformRegionDataToCascaderOptions(item.children) : undefined,
   }));
 };
@@ -130,7 +155,7 @@ const ProvinceSelect: React.FC<{
   const provinces = useMemo(() => {
     return (levelData as RegionData[]).map(province => ({
       code: province.code,
-      name: province.name,
+      name: toEnglishRegionName(province.name),
     }));
   }, []);
   // Implementation detail
