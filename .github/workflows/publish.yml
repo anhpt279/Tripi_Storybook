@@ -1,0 +1,46 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Version release type'
+        required: true
+        default: current
+        type: choice
+        options:
+          - current
+          - patch
+          - minor
+          - major
+          - prerelease
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update version
+        if: ${{ inputs.release != 'current' }}
+        run: npm version "${{ inputs.release }}" --no-git-tag-version
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Publish with provenance
+        run: npm publish --provenance --access public
