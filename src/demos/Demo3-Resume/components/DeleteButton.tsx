@@ -10,12 +10,12 @@ interface DeleteButtonProps {
   className?: string;
 }
 
-export const DeleteButton: React.FC<DeleteButtonProps> = ({ 
-  hasContent, 
-  onDelete, 
+export const DeleteButton: React.FC<DeleteButtonProps> = ({
+  hasContent,
+  onDelete,
   itemIndex: _itemIndex,
-  confirmMessage = "Are you sure you want to remove this item?",
-  className
+  confirmMessage = 'Are you sure you want to remove this item?',
+  className,
 }) => {
   const baseClassName = `transition-opacity opacity-0 group-hover:opacity-100 ${className || ''}`;
 
@@ -50,4 +50,4 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
       <Trash2 className="h-4 w-4" />
     </Button>
   );
-}; 
+};

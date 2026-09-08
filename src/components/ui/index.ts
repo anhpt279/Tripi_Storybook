@@ -1,6 +1,10 @@
 // Base Components
 export { Button, ButtonWithLoading, buttonVariants } from './base/button';
 export type { ButtonProps, ButtonWithLoadingProps } from './base/button';
+export { Card, cardVariants } from './base/card';
+export type { CardProps } from './base/card';
+export { List, ListItem, listVariants } from './base/list';
+export type { ListProps } from './base/list';
 export { Label } from './base/label';
 export { Avatar, AvatarUserInfo, AvatarWithInfo, avatarVariants } from './base/avatar';
 export { Badge, badgeVariants } from './base/badge';
@@ -130,7 +134,14 @@ export type {
   SidebarMenuButtonProps,
   SidebarMenuActionProps,
 } from './navigation/sidebar';
-export { Tabs, TabsList, TabsTrigger, TabsContent } from './navigation/tabs';
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  tabsListVariants,
+  tabsTriggerVariants,
+} from './navigation/tabs';
 export { Steps, stepsVariants } from './navigation/steps';
 export type { StepItem, StepsProps } from './navigation/steps';
 export {
