@@ -40,6 +40,8 @@ jobs:
 
       - name: Resolve available version
         run: |
+          set -euo pipefail
+
           PACKAGE_NAME=$(node -p "require('./package.json').name")
 
           if [ "${{ inputs.release }}" != "current" ]; then
@@ -47,8 +49,13 @@ jobs:
           fi
 
           VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED_VERSIONS=$(npm view "${PACKAGE_NAME}" versions --json --registry=https://registry.npmjs.org)
 
-          while npm view "${PACKAGE_NAME}@${VERSION}" version --registry=https://registry.npmjs.org >/dev/null 2>&1; do
+          while node -e '
+            const published = JSON.parse(process.argv[1]);
+            const versions = Array.isArray(published) ? published : [published];
+            process.exit(versions.includes(process.argv[2]) ? 0 : 1);
+          ' "${PUBLISHED_VERSIONS}" "${VERSION}"; do
             echo "Version ${VERSION} already exists. Bumping patch version."
             npm version patch --no-git-tag-version
             VERSION=$(node -p "require('./package.json').version")
