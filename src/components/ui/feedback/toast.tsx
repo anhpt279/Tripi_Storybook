@@ -20,11 +20,11 @@ const CustomToast = ({ toast: t }: { toast: Toast }) => {
   const getIcon = () => {
     switch (t.type) {
       case 'success':
-        return <CheckCircle className="h-4 w-4 text-green-600" />;
+        return <CheckCircle className="h-4 w-4 text-success" />;
       case 'error':
-        return <XCircle className="h-4 w-4 text-red-600" />;
+        return <XCircle className="h-4 w-4 text-destructive" />;
       default:
-        return <Info className="h-4 w-4 text-blue-600" />;
+        return <Info className="h-4 w-4 text-primary" />;
     }
   };
 

@@ -244,7 +244,7 @@ export const Interactive: Story = {
           <button
             onClick={handleNext}
             disabled={current === basicSteps.length - 1}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600"
+            className="px-4 py-2 bg-primary text-primary-foreground rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90"
           >
             Continue
           </button>
