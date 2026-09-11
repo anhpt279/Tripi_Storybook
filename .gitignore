@@ -153,3 +153,4 @@ dist-ssr
 
 # Storybook
 *storybook.log
+storybook-static/

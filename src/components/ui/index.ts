@@ -31,6 +31,23 @@ export type {
   DropdownContentProps,
   DropdownItemProps,
 } from './base/dropdown';
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+} from './base/dropdown-menu';
 
 // Data Entry Components
 export { Input } from './data-entry/input';
@@ -170,6 +187,18 @@ export type { TopNavProps } from './navigation/top-nav';
 // Feedback Components
 export { Alert, AlertTitle, AlertDescription } from './feedback/alert';
 export { Modal } from './feedback/modal';
+export {
+  Sheet,
+  SheetPortal,
+  SheetOverlay,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+} from './feedback/sheet';
 export { 
   Dialog, 
   DialogContent, 

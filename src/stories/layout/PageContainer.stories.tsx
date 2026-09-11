@@ -36,8 +36,8 @@ const ContentAreaMarker = ({
   const containerClass = variant === 'full' ? 'max-w-full' : 'max-w-[768px] mx-auto';
 
   return (
-    <div className={`${height} w-full bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg flex items-center justify-center ${containerClass}`}>
-      <Typography variant="body" className="text-blue-600 text-center">
+    <div className={`${height} w-full bg-secondary border-2 border-dashed border-primary/40 rounded-lg flex items-center justify-center ${containerClass}`}>
+      <Typography variant="body" className="text-primary text-center">
         Page content<br/>
         {widthText}<br/>
         Page container examples: 40px<br/>

@@ -80,7 +80,7 @@ export const ThreeTabs: Story = {
           <h3 className="text-xl font-medium">Overview</h3>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium text-blue-600">Overview</h4>
+              <h4 className="font-medium text-primary">Overview</h4>
               <p className="text-2xl font-medium">12,345</p>
             </div>
             <div className="p-4 border rounded-lg">

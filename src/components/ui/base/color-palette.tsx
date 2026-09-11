@@ -5,17 +5,17 @@ interface ColorItemProps {
   description?: string;
   colorClass: string;
   textColorClass?: string;
-  hslValue?: string;
+  value?: string;
 }
 
-const ColorItem: React.FC<ColorItemProps> = ({ 
-  name, 
-  description, 
-  colorClass, 
-  hslValue 
+const ColorItem: React.FC<ColorItemProps> = ({
+  name,
+  description,
+  colorClass,
+  value,
 }) => (
   <div className="flex items-center space-x-4 mb-4">
-    <div 
+    <div
       className={`w-12 h-12 rounded-lg border border-border ${colorClass}`}
     />
     <div className="flex-1">
@@ -23,8 +23,8 @@ const ColorItem: React.FC<ColorItemProps> = ({
       {description && (
         <div className="text-sm text-muted-foreground">{description}</div>
       )}
-      {hslValue && (
-        <div className="text-xs text-muted-foreground font-mono">{hslValue}</div>
+      {value && (
+        <div className="text-xs text-muted-foreground font-mono">{value}</div>
       )}
     </div>
   </div>
@@ -54,14 +54,13 @@ export const ColorPalette: React.FC = () => {
         </p>
       </div>
 
-      {/* Primary Theme Colors */}
       <ColorSection title="Primary Theme Colors">
         <div>
           <ColorItem
             name="Background"
             description="Page and application background"
             colorClass="bg-background"
-            hslValue="oklch(1 0 0)"
+            value="#f2f6f3"
           />
         </div>
         <div>
@@ -69,7 +68,7 @@ export const ColorPalette: React.FC = () => {
             name="Foreground"
             description="Default text and icon color"
             colorClass="bg-foreground"
-            hslValue="oklch(0.145 0 0)"
+            value="#0c1812"
           />
         </div>
         <div>
@@ -77,7 +76,7 @@ export const ColorPalette: React.FC = () => {
             name="Primary"
             description="Primary actions and emphasis"
             colorClass="bg-primary"
-            hslValue="#015eff"
+            value="#038141"
           />
         </div>
         <div>
@@ -85,19 +84,18 @@ export const ColorPalette: React.FC = () => {
             name="Primary Foreground"
             description="Text on primary surfaces"
             colorClass="bg-primary-foreground"
-            hslValue="oklch(0.985 0 0)"
+            value="#ffffff"
           />
         </div>
       </ColorSection>
 
-      {/* Secondary & Accent Colors */}
       <ColorSection title="Secondary & Accent Colors">
         <div>
           <ColorItem
             name="Secondary"
             description="Secondary surfaces and controls"
             colorClass="bg-secondary"
-            hslValue="oklch(0.97 0 0)"
+            value="#e7f3eb"
           />
         </div>
         <div>
@@ -105,7 +103,7 @@ export const ColorPalette: React.FC = () => {
             name="Secondary Foreground"
             description="Text on secondary surfaces"
             colorClass="bg-secondary-foreground"
-            hslValue="oklch(0.205 0 0)"
+            value="#055c30"
           />
         </div>
         <div>
@@ -113,7 +111,7 @@ export const ColorPalette: React.FC = () => {
             name="Accent"
             description="Highlights and hover states"
             colorClass="bg-accent"
-            hslValue="oklch(0.97 0 0)"
+            value="#daf3e4"
           />
         </div>
         <div>
@@ -121,19 +119,18 @@ export const ColorPalette: React.FC = () => {
             name="Accent Foreground"
             description="Text on accent surfaces"
             colorClass="bg-accent-foreground"
-            hslValue="oklch(0.205 0 0)"
+            value="#026b36"
           />
         </div>
       </ColorSection>
 
-      {/* UI Component Colors */}
       <ColorSection title="UI Component Colors">
         <div>
           <ColorItem
             name="Card"
             description="Theme token"
             colorClass="bg-card border"
-            hslValue="oklch(1 0 0)"
+            value="#ffffff"
           />
         </div>
         <div>
@@ -141,7 +138,7 @@ export const ColorPalette: React.FC = () => {
             name="Card Foreground"
             description="Theme token"
             colorClass="bg-card-foreground"
-            hslValue="oklch(0.145 0 0)"
+            value="#0c1812"
           />
         </div>
         <div>
@@ -149,7 +146,7 @@ export const ColorPalette: React.FC = () => {
             name="Popover"
             description="Theme token"
             colorClass="bg-popover border"
-            hslValue="oklch(1 0 0)"
+            value="#ffffff"
           />
         </div>
         <div>
@@ -157,7 +154,7 @@ export const ColorPalette: React.FC = () => {
             name="Popover Foreground"
             description="Theme token"
             colorClass="bg-popover-foreground"
-            hslValue="oklch(0.145 0 0)"
+            value="#0c1812"
           />
         </div>
         <div>
@@ -165,7 +162,7 @@ export const ColorPalette: React.FC = () => {
             name="Muted"
             description="Theme token"
             colorClass="bg-muted"
-            hslValue="oklch(0.97 0 0)"
+            value="#e8eee9"
           />
         </div>
         <div>
@@ -173,19 +170,18 @@ export const ColorPalette: React.FC = () => {
             name="Muted Foreground"
             description="Theme token"
             colorClass="bg-muted-foreground"
-            hslValue="oklch(0.556 0 0)"
+            value="#5c6b62"
           />
         </div>
       </ColorSection>
 
-      {/* Utility & Form Colors */}
       <ColorSection title="Utility & Form Colors">
         <div>
           <ColorItem
             name="Border"
             description="Theme token"
             colorClass="bg-border"
-            hslValue="oklch(0.922 0 0)"
+            value="#d5e3da"
           />
         </div>
         <div>
@@ -193,7 +189,7 @@ export const ColorPalette: React.FC = () => {
             name="Input"
             description="Theme token"
             colorClass="bg-input"
-            hslValue="oklch(0.922 0 0)"
+            value="#cfdcd4"
           />
         </div>
         <div>
@@ -201,32 +197,29 @@ export const ColorPalette: React.FC = () => {
             name="Ring"
             description="Theme token"
             colorClass="bg-ring"
-            hslValue="oklch(0.708 0 0)"
+            value="#038141"
           />
         </div>
         <div>
           <div className="flex items-center space-x-4 mb-4">
-            <div 
-              className="w-12 h-12 border border-border flex items-center justify-center text-xs text-muted-foreground rounded-lg"
-            >
+            <div className="w-12 h-12 border border-border flex items-center justify-center text-xs text-muted-foreground rounded-lg">
               Radius
             </div>
             <div className="flex-1">
               <div className="font-medium text-foreground">Radius</div>
-              <div className="text-xs text-muted-foreground font-mono">0.5rem</div>
+              <div className="text-xs text-muted-foreground font-mono">0.75rem</div>
             </div>
           </div>
         </div>
       </ColorSection>
 
-      {/* Status & Feedback Colors */}
       <ColorSection title="Status & Feedback Colors">
         <div>
           <ColorItem
             name="Destructive"
-            description="Border and ring color"
+            description="Error and destructive actions"
             colorClass="bg-destructive"
-            hslValue="oklch(0.577 0.245 27.325)"
+            value="#e11d48"
           />
         </div>
         <div>
@@ -234,7 +227,7 @@ export const ColorPalette: React.FC = () => {
             name="Destructive Foreground"
             description="Theme token"
             colorClass="bg-destructive-foreground"
-            hslValue="oklch(1 0)"
+            value="#ffffff"
           />
         </div>
         <div>
@@ -242,7 +235,7 @@ export const ColorPalette: React.FC = () => {
             name="Success"
             description="Theme token"
             colorClass="bg-success"
-            hslValue="hsl(142 76% 36%)"
+            value="#059669"
           />
         </div>
         <div>
@@ -250,7 +243,7 @@ export const ColorPalette: React.FC = () => {
             name="Success Foreground"
             description="Theme token"
             colorClass="bg-success-foreground"
-            hslValue="hsl(0 0% 100%)"
+            value="#ffffff"
           />
         </div>
         <div>
@@ -258,7 +251,7 @@ export const ColorPalette: React.FC = () => {
             name="Warning"
             description="Theme token"
             colorClass="bg-warning"
-            hslValue="hsl(45 93% 47%)"
+            value="#ca8a04"
           />
         </div>
         <div>
@@ -266,63 +259,61 @@ export const ColorPalette: React.FC = () => {
             name="Warning Foreground"
             description="Theme token"
             colorClass="bg-warning-foreground"
-            hslValue="hsl(0 0% 100%)"
+            value="#ffffff"
           />
         </div>
       </ColorSection>
 
-      {/* Chart & Visualization Colors */}
       <ColorSection title="Chart & Visualization Colors">
         <div>
           <ColorItem
             name="Chart 1"
-            description="Spacing token 1"
+            description="Chart series 1"
             colorClass="bg-chart-1"
-            hslValue="hsl(213 77% 78%)"
+            value="#6ecf9a"
           />
         </div>
         <div>
           <ColorItem
             name="Chart 2"
-            description="Spacing token 2"
+            description="Chart series 2"
             colorClass="bg-chart-2"
-            hslValue="hsl(213 77% 66%)"
+            value="#038141"
           />
         </div>
         <div>
           <ColorItem
             name="Chart 3"
-            description="Spacing token 3"
+            description="Chart series 3"
             colorClass="bg-chart-3"
-            hslValue="hsl(213 82% 54%)"
+            value="#055c30"
           />
         </div>
         <div>
           <ColorItem
             name="Chart 4"
-            description="Spacing token 4"
+            description="Chart series 4"
             colorClass="bg-chart-4"
-            hslValue="hsl(213 82% 47%)"
+            value="#0a7a45"
           />
         </div>
         <div>
           <ColorItem
             name="Chart 5"
-            description="Spacing token 5"
+            description="Chart series 5"
             colorClass="bg-chart-5"
-            hslValue="hsl(213 75% 40%)"
+            value="#1b4332"
           />
         </div>
       </ColorSection>
 
-      {/* Layout & Container Colors */}
       <ColorSection title="Layout & Container Colors">
         <div>
           <ColorItem
             name="Container"
             description="Theme token"
             colorClass="bg-container border-container-border border"
-            hslValue="hsl(0 0% 98.8%)"
+            value="#f7faf8"
           />
         </div>
         <div>
@@ -330,7 +321,7 @@ export const ColorPalette: React.FC = () => {
             name="Container Foreground"
             description="Theme token"
             colorClass="bg-container-foreground"
-            hslValue="hsl(0 0% 4%)"
+            value="#0c1812"
           />
         </div>
         <div>
@@ -338,7 +329,7 @@ export const ColorPalette: React.FC = () => {
             name="Block Layout"
             description="Theme token"
             colorClass="bg-block-layout border-block-layout-border border"
-            hslValue="hsl(0 0% 100%)"
+            value="#ffffff"
           />
         </div>
         <div>
@@ -346,19 +337,18 @@ export const ColorPalette: React.FC = () => {
             name="Block Layout Foreground"
             description="Theme token"
             colorClass="bg-block-layout-foreground"
-            hslValue="hsl(0 0% 4%)"
+            value="#0c1812"
           />
         </div>
       </ColorSection>
 
-      {/* Sidebar Colors */}
       <ColorSection title="Sidebar Colors">
         <div>
           <ColorItem
             name="Sidebar"
             description="Theme token"
             colorClass="bg-sidebar"
-            hslValue="hsl(0 0% 96.3%)"
+            value="#eef6f1"
           />
         </div>
         <div>
@@ -366,7 +356,7 @@ export const ColorPalette: React.FC = () => {
             name="Sidebar Foreground"
             description="Theme token"
             colorClass="bg-sidebar-foreground"
-            hslValue="hsl(0 0% 4%)"
+            value="#0c1812"
           />
         </div>
         <div>
@@ -374,7 +364,7 @@ export const ColorPalette: React.FC = () => {
             name="Sidebar Primary"
             description="Theme token"
             colorClass="bg-sidebar-primary"
-            hslValue="hsl(0 0% 9%)"
+            value="#038141"
           />
         </div>
         <div>
@@ -382,7 +372,7 @@ export const ColorPalette: React.FC = () => {
             name="Sidebar Accent"
             description="Theme token"
             colorClass="bg-sidebar-accent"
-            hslValue="hsl(0 0% 93.7%)"
+            value="#daf3e4"
           />
         </div>
         <div>
@@ -390,7 +380,7 @@ export const ColorPalette: React.FC = () => {
             name="Sidebar Selected"
             description="Theme token"
             colorClass="bg-sidebar-selected"
-            hslValue="hsl(0 0% 91%)"
+            value="#d5ebe0"
           />
         </div>
       </ColorSection>
@@ -398,4 +388,4 @@ export const ColorPalette: React.FC = () => {
   );
 };
 
-export default ColorPalette; 
+export default ColorPalette;

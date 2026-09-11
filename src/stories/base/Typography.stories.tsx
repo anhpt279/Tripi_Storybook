@@ -75,7 +75,7 @@ export const LineHeightDemo: Story = {
     <div className="space-y-6 p-6">
       <div>
         <h4 className="text-sm font-medium text-gray-600 mb-2">leading-none - headings with tight line height</h4>
-        <p className="text-sm leading-none border-l-4 border-blue-200 pl-4">
+        <p className="text-sm leading-none border-l-4 border-primary/30 pl-4">
           Readable interface copy.
           Readable interface copy.
           Readable interface copy.

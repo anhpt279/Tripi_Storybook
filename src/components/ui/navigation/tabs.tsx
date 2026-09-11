@@ -27,7 +27,7 @@ const tabsTriggerVariants = cva(
     variants: {
       variant: {
         default: '',
-        navigation: 'h-full rounded-none border-b-2 border-transparent px-0 py-0 text-slate-600 data-[state=active]:border-[#2e3192] data-[state=active]:bg-transparent data-[state=active]:text-[#2e3192] data-[state=active]:shadow-none',
+        navigation: 'h-full rounded-none border-b-2 border-transparent px-0 py-0 text-muted-foreground data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none',
       },
     },
     defaultVariants: {
